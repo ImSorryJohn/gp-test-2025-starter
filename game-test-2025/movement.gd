@@ -1,11 +1,21 @@
 extends CharacterBody2D
+class_name Player
 
+@export var speed:float = 100
+@export var move_left:String
+@export var move_right:String
+@export var move_up:String
+@export var move_down:String
+@export var lives:int = 5
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var f = Input.get_axis("move_down", "move_up")
+	var move_up_input = transform.y * f * speed
+	
+	
+	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	pass

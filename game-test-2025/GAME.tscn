@@ -10,6 +10,8 @@ size = Vector2(32, 32)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(176, 270)
+scale = Vector2(0.998603, 0.991219)
+motion_mode = 1
 script = ExtResource("1_d7acc")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
