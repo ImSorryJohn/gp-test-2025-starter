@@ -7,34 +7,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7acc"]
 size = Vector2(32, 32)
 
-[sub_resource type="GDScript" id="GDScript_d7acc"]
-script/source = "extends CharacterBody2D
-
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oornv"]
 size = Vector2(31, 32)
 
@@ -130,6 +102,9 @@ cache/0/19/0/underline_position = 0.0
 cache/0/19/0/underline_thickness = 0.0
 cache/0/19/0/scale = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pma5d"]
+size = Vector2(59, 647)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="PLAYER" type="CharacterBody2D" parent="."]
@@ -150,7 +125,6 @@ physics_interpolation_mode = 1
 position = Vector2(1037, 252)
 scale = Vector2(0.981569, 1)
 up_direction = Vector2(-1, 0)
-script = SubResource("GDScript_d7acc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ENEMY"]
 position = Vector2(-0.5, 0)
@@ -174,3 +148,11 @@ offset_top = 27.0
 offset_right = 69.0
 offset_bottom = 50.0
 text = "ENEMIES:"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1113, 343)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9.5, -19.5)
+shape = SubResource("RectangleShape2D_pma5d")
