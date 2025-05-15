@@ -8,7 +8,7 @@ func _ready() -> void:
 	pass 
 func _physics_process(delta: float) -> void:
 	
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("MOVE LEFT", "MOVE RIGHT")
 	if direction:
 		velocity.x = direction * SPEED
 	else:

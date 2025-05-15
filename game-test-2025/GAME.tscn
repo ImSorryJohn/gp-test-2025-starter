@@ -1,30 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsnlsflsa075f"]
 
+[ext_resource type="Script" uid="uid://bf44gkwxd7wk4" path="res://movement.gd" id="1_d7acc"]
 [ext_resource type="Texture2D" uid="uid://dgc2omslnultg" path="res://32x32white.png" id="1_oornv"]
 [ext_resource type="Texture2D" uid="uid://62emqvq8toc5" path="res://icon.svg" id="2_d7acc"]
-
-[sub_resource type="GDScript" id="GDScript_oornv"]
-script/source = "extends CharacterBody2D
-
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
-
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7acc"]
 size = Vector2(32, 32)
@@ -158,7 +136,7 @@ cache/0/19/0/scale = 1.0
 position = Vector2(176, 270)
 scale = Vector2(0.969236, 0.995185)
 motion_mode = 1
-script = SubResource("GDScript_oornv")
+script = ExtResource("1_d7acc")
 
 [node name="Sprite2D" type="Sprite2D" parent="PLAYER"]
 texture = ExtResource("1_oornv")
@@ -171,6 +149,7 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 physics_interpolation_mode = 1
 position = Vector2(1037, 252)
 scale = Vector2(0.981569, 1)
+up_direction = Vector2(-1, 0)
 script = SubResource("GDScript_d7acc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ENEMY"]
