@@ -10,6 +10,7 @@ size = Vector2(32, 32)
 [node name="Node2D" type="Node2D"]
 
 [node name="PLAYER" type="CharacterBody2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(176, 270)
 scale = Vector2(0.998603, 0.991219)
 motion_mode = 1
@@ -21,6 +22,7 @@ texture = ExtResource("1_oornv")
 shape = SubResource("RectangleShape2D_d7acc")
 
 [node name="ENEMY" type="CharacterBody2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(1037, 252)
 up_direction = Vector2(-1, 0)
 
