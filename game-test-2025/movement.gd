@@ -9,8 +9,7 @@ class_name Player
 @export var lives:int = 5
 
 func _ready() -> void:
-	var f = Input.get_axis("move_down", "move_up")
-	var move_up_input = transform.y * f * speed
+	
 	
 	
 	pass 
