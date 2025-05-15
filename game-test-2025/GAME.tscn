@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsnlsflsa075f"]
+[gd_scene load_steps=7 format=3 uid="uid://dsnlsflsa075f"]
 
 [ext_resource type="Texture2D" uid="uid://dgc2omslnultg" path="res://32x32white.png" id="1_oornv"]
+[ext_resource type="Texture2D" uid="uid://62emqvq8toc5" path="res://icon.svg" id="2_d7acc"]
 
 [sub_resource type="GDScript" id="GDScript_oornv"]
 script/source = "extends CharacterBody2D
@@ -57,6 +58,7 @@ func _physics_process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oornv"]
+size = Vector2(31, 32)
 
 [node name="Node2D" type="Node2D"]
 
@@ -71,14 +73,19 @@ texture = ExtResource("1_oornv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PLAYER"]
 shape = SubResource("RectangleShape2D_d7acc")
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="ENEMY" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(1037, 252)
+scale = Vector2(0.981569, 1)
 script = SubResource("GDScript_d7acc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ENEMY"]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_oornv")
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ENEMY"]
-texture = ExtResource("1_oornv")
+scale = Vector2(0.250359, 0.255771)
+texture = ExtResource("2_d7acc")
